@@ -22,7 +22,7 @@
     },
     
     "changelog": {
-      "workspaceChangelog": {
+      "projectChangelogs": {
         "createRelease": "github",
         "file": false
       }
@@ -30,6 +30,7 @@
     "releaseTagPattern": "{projectName}-v{version}",
     "version": {      
       "generatorOptions": {
+        "conventionalCommits": true,
         "currentVersionResolver": "git-tag",
         "fallbackCurrentVersionResolver": "disk"
       }
