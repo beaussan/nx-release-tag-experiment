@@ -11,6 +11,30 @@
     ],
     "sharedGlobals": []
   },
+
+  "release": {
+    "projects": ["apps/my-app"],
+    "projectsRelationship": "independent",
+    "git": {
+      "commit": false,
+      "stageChanges": false,
+      "tag": true
+    },
+    
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github",
+        "file": false
+      }
+    },
+    "releaseTagPattern": "{projectName}-v{version}",
+    "version": {      
+      "generatorOptions": {
+        "currentVersionResolver": "git-tag",
+        "fallbackCurrentVersionResolver": "disk"
+      }
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/remix/plugin",
