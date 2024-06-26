@@ -30,6 +30,7 @@
     "releaseTagPattern": "{projectName}-v{version}",
     "version": {      
       "generatorOptions": {
+        "specifierSource": "conventional-commits",
         "conventionalCommits": true,
         "currentVersionResolver": "git-tag",
         "fallbackCurrentVersionResolver": "disk"
