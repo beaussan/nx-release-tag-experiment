@@ -2,9 +2,7 @@
   "private": true,
   "name": "my-app",
   "description": "",
-  "version": "3.7.2",
   "license": "",
-  "scripts": {},
   "type": "module",
   "dependencies": {
     "@remix-run/node": "^2.8.1",
