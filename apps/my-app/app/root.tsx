@@ -10,7 +10,7 @@ import {
 
 export const meta: MetaFunction = () => [
   {
-    title: 'New Remix A BAAAA',
+    title: 'New Remix A BAAA AAA',
   },
 ];
 
