@@ -3,6 +3,7 @@
   "name": "my-app-2",
   "description": "",
   "license": "",
+  "version": "0.0.0",
   "scripts": {},
   "type": "module",
   "dependencies": {

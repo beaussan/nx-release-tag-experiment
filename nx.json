@@ -12,7 +12,7 @@
     "sharedGlobals": []
   },
   "release": {
-    "projects": ["apps/my-app"],
+    "projects": ["apps/my-app", "apps/my-ap-2", "apps/my-ap-2"],
     "projectsRelationship": "independent",
     "git": {
       "commit": false,
