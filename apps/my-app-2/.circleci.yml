@@ -1,0 +1,13 @@
+jobs:
+  deploy-app-2:
+    executor: node
+    resource_class: medium
+    steps:
+      - echo "Deploying App 2"
+
+workflows:
+  docker_build_and_deploy:
+    jobs:
+      - deploy-app-2:
+          requires:
+            - nx-run
