@@ -1,7 +1,7 @@
 // @ts-check
 import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release/index.js';
 
-import { inc, valid } from 'semver';
+import { inc } from 'semver';
 
 const computeActuallyNextVersion = (projectsVersionData) => {
   const expectedStartVersion = formatDate(new Date());
@@ -30,7 +30,7 @@ function formatDate(date) {
     // We don't want to update the package.json to have a dirty git state
     dryRun: true,
     verbose: options.verbose,
-    projects: ['apps/my-app'],
+    projects: ['apps/my-app', 'apps/my-ap-2', 'apps/my-ap-2'],
     gitCommit: false,
     stageChanges: false,
     gitTag: true,
