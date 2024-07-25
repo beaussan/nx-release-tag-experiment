@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  nx: nrwl/nx@1.6.2
+
+executors:
+  node:
+    docker:
+      - image: cimg/node:20.10.0
+references:
+  attach_workspace: &attach_workspace
+    at: ~/project
+  restore_npm_cache: &restore_npm_cache
+    keys:
+      - node-module-cache-{{ checksum "yarn.lock" }}
+      - node-module-cache-
+  save_npm_cache: &save_npm_cache
+    key:
+      node-module-cache-{{ checksum "yarn.lock" }}
+    # This is a shell script to find all node_modules folders in the project
+    # find . -name "node_modules" -not -path "./node_modules" -not -path "./node_modules/*" -not -path "*/node_modules/*/*" | cut -b 3- | awk '{print "- "$0}' | sort
+    paths:
+      - node_modules
+  nx_set_shas: &nx_set_shas
+    error-on-no-successful-workflow: false
+    main-branch-name: master
+
+jobs:
+  nx-run:
+    executor: node
+    environment:
+      - NX_VERBOSE_LOGGING: true
+    resource_class: medium
+    steps:
+      - checkout
+      - attach_workspace: *attach_workspace
+      - restore_cache: *restore_npm_cache
+      - run: yarn --immutable
+      - nx/set-shas: *nx_set_shas
+      - run:
+          name: Trigger Nx Commands
+          no_output_timeout: 15m
+          command: |
+            echo "OK"
+            exit 0
+      - save_cache: *save_npm_cache
+
+workflows:
+  docker_build_and_deploy:
+    jobs:
+      - nx-run
