@@ -67,8 +67,6 @@ const getPackagesToReleasePaths = async () => {
     }
   }).filter(Boolean);
 
-  let current = base
-
 
   for (let config of yamlFromProject) {
     const jobs = config.get('jobs').items;
@@ -86,7 +84,7 @@ const getPackagesToReleasePaths = async () => {
     }
   }
 
-  saveYaml(current, 'generated-circle-ci.yaml');
+  saveYaml(base, 'generated-circle-ci.yaml');
 
   process.exit(0);
 })();
