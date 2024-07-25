@@ -16,7 +16,7 @@ const computeActuallyNextVersion = (projectsVersionData) => {
 };
 
 function formatDate(date) {
-  const year = date.getFullYear();
+  const year = new Date().getFullYear() - 2000;
   const month = new String(date.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-11
   const day = date.getDate();
 
@@ -30,7 +30,7 @@ function formatDate(date) {
     // We don't want to update the package.json to have a dirty git state
     dryRun: true,
     verbose: options.verbose,
-    projects: ['apps/my-app', 'apps/my-ap-2', 'apps/my-ap-2'],
+    projects: ['apps/my-app', 'apps/my-app-2', 'apps/my-app-3'],
     gitCommit: false,
     stageChanges: false,
     gitTag: true,

@@ -6,20 +6,15 @@ import * as fs from 'fs';
 import * as path from 'node:path';
 import { parseDocument, stringify } from 'yaml';
 
-
-
-
 function loadYaml(filePath) {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   return parseDocument(fileContents);
 }
 
-
 function saveYaml(data, filePath) {
   const yamlString = stringify(data);
   fs.writeFileSync(filePath, yamlString, 'utf8');
 }
-
 
 const getPackagesToReleasePaths = async () => {
   const options = { dryRun: false, verbose: false };
@@ -51,20 +46,16 @@ const getPackagesToReleasePaths = async () => {
   }
   const graph = await createProjectGraphAsync();
 
-  const projectPaths = projectThatNeedsCi.map(projectName => {
+  return projectThatNeedsCi.map(projectName => {
     const project = graph.nodes[projectName];
     return project.data.root;
   });
-  console.log('projectPaths', projectPaths);
-  return projectPaths;
 }
 
 
 (async () => {
-
   const projectThatNeedsCi =await getPackagesToReleasePaths();
 
-  // console.log('projectThatNeedsCi', projectThatNeedsCi);
   const base = loadYaml('./.circleci/base.yml');
 
   const yamlFromProject = projectThatNeedsCi.map(projectPath => {
@@ -95,11 +86,7 @@ const getPackagesToReleasePaths = async () => {
     }
   }
 
-
-
-
   saveYaml(current, 'generated-circle-ci.yaml');
-
 
   process.exit(0);
 })();
