@@ -28,7 +28,7 @@ Then run the app in production mode:
 npx nx start my-app
 ```
 
-Now you'll need to pick a host to deploy it to.
+Now you'll need to pick a host to deploy it to. AAA
 
 ### DIY
 
