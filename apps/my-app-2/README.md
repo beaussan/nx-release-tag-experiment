@@ -5,7 +5,7 @@
 
 ## Development
 
-From your terminal:
+From your terminal: t
 
 ```sh
 npx nx dev my-app-2

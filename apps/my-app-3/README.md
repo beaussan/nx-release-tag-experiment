@@ -5,7 +5,7 @@
 
 ## Development
 
-From your terminal: tt
+From your terminal: ttt
 
 ```sh
 npx nx dev my-app-3
