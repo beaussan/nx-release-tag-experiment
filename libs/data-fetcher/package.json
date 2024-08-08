@@ -1,6 +1,6 @@
 {
   "name": "@nx-release-tag/data-fetcher",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {
