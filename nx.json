@@ -12,28 +12,27 @@
     "sharedGlobals": []
   },
   "release": {
-    "projects": ["apps/my-app", "apps/my-app-2", "apps/my-app-3"],
     "projectsRelationship": "independent",
     "groups": {
+      "individual-libs": {
+        "projectsRelationship": "independent",
+        "projects": ["libs/data-fetcher", "libs/feature-lib"]
+      },
       "design-system": {
         "projectsRelationship": "fixed",
         "releaseTagPattern": "design-system-v{version}",
-        "versionPlans": false,
-        "projects": ["libs/design-system/*"],
-        "version": {
-          "conventionalCommits": true
-        }
+        "projects": ["libs/design-system/*"]
       }
     },
     "git": {
-      "commit": false,
-      "stageChanges": false,
+      "commit": true,
+      "stageChanges": true,
       "tag": true
     },
     "changelog": {
       "projectChangelogs": {
         "createRelease": "github",
-        "file": false
+        "file": "{projectName}/CHANGELOG.md"
       }
     },
     "releaseTagPattern": "{projectName}-v{version}",
