@@ -5,7 +5,7 @@ import { Icons } from '@nx-release-tag/design-system-icons';
 export function Components() {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to Components!</h1>
+      <h1>Welcome to Components v2!</h1>
       <Theme />
       <Icons />
     </div>
