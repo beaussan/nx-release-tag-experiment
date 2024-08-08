@@ -1,0 +1,16 @@
+{
+  "name": "@nx-release-tag/design-system-components",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@nx-release-tag/design-system-icons": "0.0.1",
+    "@nx-release-tag/design-system-theme": "0.0.1"
+  }
+}

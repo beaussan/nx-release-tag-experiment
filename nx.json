@@ -12,8 +12,19 @@
     "sharedGlobals": []
   },
   "release": {
-    "projects": ["apps/my-app", "apps/my-ap-2", "apps/my-ap-2"],
+    "projects": ["apps/my-app", "apps/my-app-2", "apps/my-app-3"],
     "projectsRelationship": "independent",
+    "groups": {
+      "design-system": {
+        "projectsRelationship": "fixed",
+        "releaseTagPattern": "design-system-v{version}",
+        "versionPlans": false,
+        "projects": ["libs/design-system/*"],
+        "version": {
+          "conventionalCommits": true
+        }
+      }
+    },
     "git": {
       "commit": false,
       "stageChanges": false,
@@ -73,6 +84,13 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    }
+  },
+  "generators": {
+    "@nx/react": {
+      "library": {
+        "unitTestRunner": "vitest"
+      }
     }
   }
 }

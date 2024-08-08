@@ -1,5 +1,5 @@
 // @ts-check
-import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release/index.js';
+import { releaseChangelog, releaseVersion } from 'nx/release/index.js';
 
 import { inc } from 'semver';
 

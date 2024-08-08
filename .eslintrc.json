@@ -30,6 +30,20 @@
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["package.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": [
+          "error",
+          {
+            "includeTransitiveDependencies": false,
+            "ignoredFiles": ["{projectRoot}/vite.config.ts", "{projectRoot}/vitest.config.ts"],
+            "ignoredDependencies": ["react-dom", "react"]
+          }
+        ]
+      }
     }
   ]
 }

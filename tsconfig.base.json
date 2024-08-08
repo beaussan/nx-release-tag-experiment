@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-release-tag/design-system-components": [
+        "libs/design-system/components/src/index.ts"
+      ],
+      "@nx-release-tag/design-system-icons": [
+        "libs/design-system/icons/src/index.ts"
+      ],
+      "@nx-release-tag/design-system-theme": [
+        "libs/design-system/theme/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
